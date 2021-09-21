@@ -1,0 +1,26 @@
+[
+    {
+    "WeaponType": "Sword",
+    "maxDmg": 15,
+    "minDmg": 10,
+    "hitChanse": 1
+},
+{
+    "WeaponType": "Bow",
+    "maxDmg": 95,
+    "minDmg": 50,
+    "hitChanse": 3
+},
+{
+    "WeaponType": "Spear",
+    "maxDmg": 50,
+    "minDmg": 25,
+    "hitChanse": 2
+},
+{
+    "WeaponType": "Gun",
+    "maxDmg": 100,
+    "minDmg": 95,
+    "hitChanse": 5
+}
+]
