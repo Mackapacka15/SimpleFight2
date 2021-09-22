@@ -10,6 +10,7 @@ namespace SimpleFight2
         public bool playable = false;
         public string name = "";
         public int hp = 100;
+        public Armour currentArmor = new Armour() { type = "None", defense = 0 };
 
         public List<Armour> armour = new List<Armour>();
         public List<Weapon> weapons = new List<Weapon>();
@@ -21,10 +22,13 @@ namespace SimpleFight2
         public Fighter()
         {
             string weaponString = File.ReadAllText("Weapons.json");
+            string armourString = File.ReadAllText("Armour.json");
             weapons = JsonSerializer.Deserialize<List<Weapon>>(weaponString);
+            armour = JsonSerializer.Deserialize<List<Armour>>(armourString);
 
             string[] names = { "Dr. Doofenshmirtz", "The Joker", "Scarecrow" };
             name = names[generator.Next(0, 3)];
+
         }
         public void Attack()
         {
@@ -35,7 +39,7 @@ namespace SimpleFight2
                 Console.WriteLine("What weapon do you want to use?");
                 for (int i = 0; i < weapons.Count; i++)
                 {
-                    Console.WriteLine(i + ")" + weapons[i].WeaponType);
+                    weapons[i].DisplayStats(i);
                 }
                 answer = Console.ReadLine();
 

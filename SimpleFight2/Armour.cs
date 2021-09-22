@@ -4,7 +4,7 @@ namespace SimpleFight2
 {
     public class Armour
     {
-        protected string name { get; set; }
-        protected int defense { get; set; }
+        public string type { get; init; }
+        public int defense { get; init; }
     }
 }

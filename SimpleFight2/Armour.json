@@ -1,0 +1,14 @@
+[
+    {
+        "type": "Beginner_Armour",
+        "defense": 10
+    },
+    {
+        "type": "Hero's_Armour",
+        "defense": 50
+    },
+    {
+        "type": "Op_Armour",
+        "defense": 200
+    }
+]

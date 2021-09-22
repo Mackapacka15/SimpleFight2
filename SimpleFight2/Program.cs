@@ -13,6 +13,7 @@ namespace SimpleFight2
             enemy.target = player;
             player.target = enemy;
             player.playable = true;
+            player.currentArmor = player.armour[0];
             Console.WriteLine("Whats your hero's name?");
             player.name = Console.ReadLine();
             fighters.Add(player);
