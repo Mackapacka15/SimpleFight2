@@ -1,5 +1,7 @@
+using System.IO;
 using System.Collections.Generic;
 using System;
+using System.Text.Json;
 
 namespace SimpleFight2
 {
@@ -9,7 +11,7 @@ namespace SimpleFight2
         public string name = "";
         public int hp = 100;
 
-        public Weapon weapon = new Weapon();
+        public List<Armour> armour = new List<Armour>();
         public List<Weapon> weapons = new List<Weapon>();
 
         public Fighter target;
@@ -18,10 +20,8 @@ namespace SimpleFight2
 
         public Fighter()
         {
-            weapons.Add(new Sword());
-            weapons.Add(new Bow());
-            weapons.Add(new Spear());
-            weapons.Add(new Gun());
+            string weaponString = File.ReadAllText("Weapons.json");
+            weapons = JsonSerializer.Deserialize<List<Weapon>>(weaponString);
 
             string[] names = { "Dr. Doofenshmirtz", "The Joker", "Scarecrow" };
             name = names[generator.Next(0, 3)];
@@ -47,7 +47,7 @@ namespace SimpleFight2
                 }
                 else
                 {
-                    Console.WriteLine("That wasn't a valid number. You get a random number!");
+                    Console.WriteLine("That wasn't a valid number. You get a random weapon!");
                     weapons[generator.Next(0, weapons.Count)].Attack(target);
                 }
             }
